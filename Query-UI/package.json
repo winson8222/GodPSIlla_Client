@@ -4,9 +4,9 @@
     "node": ">=18"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "PORT=3006 next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "PORT=3006 next start"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.0",

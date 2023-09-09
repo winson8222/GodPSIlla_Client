@@ -31,8 +31,8 @@ export default function FormComponent() {
               return;
             }
 
-            if (!url) {
-              toast.error("Please input an upstream url!");
+            if (selectedFile.type !== "text/csv") {
+              toast.error("Please select a .csv file!");
               return;
             }
             
@@ -72,9 +72,12 @@ export default function FormComponent() {
             }
         })
         .catch((error) => {
-            console.log(error); 
 
-            toast.error('Query failed: ' + error.response.data);
+          if (error.response && error.response.data) {
+            toast.error('Query failed:', error.response.data);
+          } else {
+              toast.error('Query failed:', error.message);
+          }
 
         });
   
